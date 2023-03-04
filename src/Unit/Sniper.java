@@ -25,7 +25,7 @@ public class Sniper extends Character{
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Снайпер");
+        info.append(name);
         return info.toString();
     }
 

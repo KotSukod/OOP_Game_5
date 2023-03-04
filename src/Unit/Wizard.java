@@ -26,7 +26,7 @@ public class Wizard extends Character{
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Колдун");
+        info.append(name);
         return info.toString();
     }
 

@@ -16,8 +16,10 @@ public class Peacant extends Character{
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Крестьянен");
+        info.append(name);
         return info.toString();
     }
+
+
 }
 

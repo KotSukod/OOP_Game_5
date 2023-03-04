@@ -17,7 +17,7 @@ public class peacman extends Character{
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Копейщик");
+        info.append(name);
         return info.toString();
     }
 }

@@ -30,7 +30,7 @@ public class bowman extends Character{
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Арбалетчик");
+        info.append(name);
         return info.toString();
     }
 

@@ -17,7 +17,7 @@ public class Rogue extends Character{
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Разбойник");
+        info.append(name);
         return info.toString();
     }
 }

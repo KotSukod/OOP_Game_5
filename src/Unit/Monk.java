@@ -26,7 +26,7 @@ public class Monk extends Character {
     @Override
     public String getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append("Монах");
+        info.append(name);
         return info.toString();
         }
     @Override
