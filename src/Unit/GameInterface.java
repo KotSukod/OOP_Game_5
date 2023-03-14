@@ -2,5 +2,5 @@ package Unit;
 
 public interface GameInterface {
 
-    String getInfo();
+    StringBuilder getInfo();
 }

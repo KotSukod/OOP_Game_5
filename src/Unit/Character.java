@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class Character extends Coor implements GameInterface {
-
+    protected String name;
     protected int HP;
     protected int attack;
     protected int damageMin;
     protected int damageMax;
     protected int defend;
     protected int speed;
-
+    protected Coor coords;
     String team;
 
-    public Character(int HP, int attack, int damageMin, int damageMax, int defend, int speed,int posX,int posY,String team) {
+    public Character(String name,int HP, int attack, int damageMin, int damageMax, int defend, int speed,int posX,int posY,String team) {
         super(posX, posY);
+        this.name = name;
         this.HP = HP;
         this.attack = attack;
         this.damageMin = damageMin;
         this.damageMax = damageMax;
         this.defend = defend;
         this.speed = speed;
-        this.posX = posX;
-        this.posY = posY;
         this.team = team;
+        coords = new Coor(posX,posY);
     }
 
 
@@ -39,6 +39,8 @@ public abstract class Character extends Coor implements GameInterface {
     public int getAttack() {
         return new Random().nextInt(damageMin,damageMax + 1 );
     }
+
+    public int[] getCoords (){return new int[]{coords.posX, coords.posY};}
 
     public int getDefend() {
         return defend;
@@ -69,4 +71,20 @@ public abstract class Character extends Coor implements GameInterface {
 
     }
 
+    @Override
+    public StringBuilder getInfo() {
+        return new StringBuilder("");
+    }
+
+
+    @Override
+    public String toString() {
+        return name +
+                " H:" + Math.round(HP) +
+                " D:" + defend +
+                " A:" + attack +
+                " Dmg:" + Math.round(Math.abs((damageMin+damageMax)/2));
+    }
 }
+
+

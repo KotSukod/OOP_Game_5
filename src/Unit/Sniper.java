@@ -9,24 +9,23 @@ public class Sniper extends Character{
     int shot = shotMax;
 
     public Sniper(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name, int shotMax, int shot,String team) {
-        super(HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
+        super(name,HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
         this.name = name;
         this.shotMax = shotMax;
         this.shot = shot;
     }
 
-    public Sniper(String name, int posX,int posY, String team){
-        super(15,12,8,10,10,9, posX, posY,team);
+    public Sniper(String name, Coor coor, String team){
+        super(name,15,12,8,10,10,9, coor.posX, coor.posY,team);
         this.name = name;
         this.shotMax = shotMax;
         this.shot = shot;
     }
 
     @Override
-    public String getInfo() {
+    public StringBuilder getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append(name);
-        return info.toString();
+        return info.append("Снапер");
     }
 
     @Override

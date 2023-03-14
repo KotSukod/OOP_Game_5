@@ -4,20 +4,14 @@ public class Peacant extends Character{
 
     String name;
 
-    public Peacant(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name,String team) {
-        super(HP, attack, damageMin, damageMax, defend, speed, posX, posY, team);
-        this.name = name;
-    }
-
-    public Peacant (String name, int posX,int posY, String team){
-        super(1,1,1,1,1,3, posX, posY,team);
+    public Peacant (String name, Coor coor, String team){
+        super(name,1,1,1,1,1,3, coor.posX, coor.posY,team);
         this.name = name;
     }
     @Override
-    public String getInfo() {
+    public StringBuilder getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append(name);
-        return info.toString();
+        return info.append("Крестьянен");
     }
 
 

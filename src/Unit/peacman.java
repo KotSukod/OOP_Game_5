@@ -5,19 +5,19 @@ public class peacman extends Character{
     String name;
 
     public peacman(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name,String team) {
-        super(HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
+        super(name,HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
         this.name = name;
     }
 
-    public peacman (String name, int posX,int posY,String team){
-        super(10,6,1,3,5,4, posX, posY,team);
+    public peacman (String name, Coor coor,String team){
+        super(name,10,6,1,3,5,4, coor.posX, coor.posY,team);
         this.name = name;
     }
+
 
     @Override
-    public String getInfo() {
+    public StringBuilder getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append(name);
-        return info.toString();
+        return info.append("Пикенер");
     }
 }

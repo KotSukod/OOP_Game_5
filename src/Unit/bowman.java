@@ -4,38 +4,22 @@ import java.util.Random;
 
 public class bowman extends Character{
 
-    String name;
     int shotMax = 16;
     int shot = shotMax;
 
-    public bowman(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name, int shotMax, int shot,String team) {
-        super(HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
-        this.name = name;
-        this.shotMax = shotMax;
-        this.shot = shot;
-    }
-
-
-
-    public bowman (String name, int posX,int posY,String team){
-        super(10,6,2,3,3,4, posX, posY,team);
+    public bowman (String name, Coor coor,String team){
+        super(name,10,6,2,3,3,4, coor.posX, coor.posY,team);
         this.name = name;
         this.shotMax = shotMax;
         this.shot = shot;
 
     }
-
-
 
     @Override
-    public String getInfo() {
+    public StringBuilder getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append(name);
-        return info.toString();
+        return info.append("Арбалетчик");
     }
-
-
-
 
     @Override
     public int getAttack() {

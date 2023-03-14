@@ -9,14 +9,14 @@ public class Wizard extends Character{
     int mana = manaMax;
 
     public Wizard(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name, int manaMax, int mana,String team)  {
-        super(HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
+        super(name,HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
         this.name = name;
         this.manaMax = manaMax;
         this.mana = mana;
     }
 
-    public Wizard(String name, int posX,int posY,String team){
-        super(30,17,-5,-5,12,9, posX, posY,team);
+    public Wizard(String name, Coor coor,String team){
+        super(name,30,17,-5,-5,12,9, coor.posX, coor.posY,team);
         this.name = name;
         this.manaMax = manaMax;
         this.mana = mana;
@@ -24,10 +24,9 @@ public class Wizard extends Character{
     }
 
     @Override
-    public String getInfo() {
+    public StringBuilder getInfo() {
         StringBuilder info = new StringBuilder();
-        info.append(name);
-        return info.toString();
+        return info.append("Маг");
     }
 
     @Override
