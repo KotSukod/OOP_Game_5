@@ -7,6 +7,7 @@ public abstract class Character extends Coor implements GameInterface {
     protected String name;
     protected int HP;
     protected int attack;
+    protected int rangeAttack;
     protected int damageMin;
     protected int damageMax;
     protected int defend;
@@ -14,11 +15,12 @@ public abstract class Character extends Coor implements GameInterface {
     protected Coor coords;
     String team;
 
-    public Character(String name,int HP, int attack, int damageMin, int damageMax, int defend, int speed,int posX,int posY,String team) {
+    public Character(String name,int HP, int attack, int rangeAttack, int damageMin, int damageMax, int defend, int speed,int posX,int posY,String team) {
         super(posX, posY);
         this.name = name;
         this.HP = HP;
         this.attack = attack;
+        this.rangeAttack = rangeAttack;
         this.damageMin = damageMin;
         this.damageMax = damageMax;
         this.defend = defend;
@@ -49,7 +51,8 @@ public abstract class Character extends Coor implements GameInterface {
     public int getSpeed() {
         return speed;
     }
-    public int step(ArrayList<Character> list, int a, int b){
+    public int
+    step(ArrayList<Character> list, Character character, int a, int b){
         double x = a;
         double y = b;
         double help = 0;
@@ -66,8 +69,12 @@ public abstract class Character extends Coor implements GameInterface {
             if (i == 0){help = dist;}
 
         }
-        return target;
+        if (help > character.rangeAttack){
+            if (list.get(target).coords.posX !=character.posX){
+                return 12;
+            }else return 11;
 
+        }else return target;
 
     }
 

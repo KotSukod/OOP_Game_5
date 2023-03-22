@@ -8,7 +8,7 @@ public class bowman extends Character{
     int shot = shotMax;
 
     public bowman (String name, Coor coor,String team){
-        super(name,10,6,2,3,3,4, coor.posX, coor.posY,team);
+        super(name,10,6,10,2,3,3,4, coor.posX, coor.posY,team);
         this.name = name;
         this.shotMax = shotMax;
         this.shot = shot;

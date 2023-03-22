@@ -72,18 +72,7 @@ public class Main {
             View.veiw();
             user_input.nextLine();
             getTurn(list_1, list_2,list_3);
-            for (int i = 0; i < list_1.size(); i++)
-                if (list_1.get(i).HP <= 0) {
-                   // System.out.printf("Team 1 %s dead\n",list_1.get(i).getInfo());
-                    //list_1.remove(i);
-                }
-            for (int i = 0; i < list_2.size(); i++) {
-                if (list_2.get(i).HP <= 0){
-                    //System.out.printf("Team 2 %s dead\n",list_2.get(i).getInfo());
-                    //list_2.remove(i);
-                }
 
-            }
         }
 
     }
@@ -99,29 +88,37 @@ public class Main {
 
                         if (list_3.get(i).getClass() == Monk.class || list_3.get(i).getClass() == Wizard.class) {
 
-                            target = list_3.get(i).step(list_1, list_3.get(i).getPosX(), list_3.get(i).getPosY());
+                            target = list_3.get(i).step(list_1,list_3.get(i), list_3.get(i).getPosX(), list_3.get(i).getPosY());
                             int attack = list_3.get(i).getAttack();
                             list_1.get(target).setHP(list_1.get(target).HP - attack);
                             System.out.println(list_3.get(i).name + " лечит " + list_1.get(target).name + " на " + attack );
                         } else {
-                            target = list_3.get(i).step(list_2, list_3.get(i).getPosX(), list_3.get(i).getPosY());
-                            int attack = list_3.get(i).getAttack();
-                            list_2.get(target).setHP(list_2.get(target).HP - list_3.get(i).getAttack());
-                            System.out.println(list_3.get(i).name + " атакует " + list_2.get(target).name + " на " + attack );
+                            target = list_3.get(i).step(list_2,list_3.get(i), list_3.get(i).getPosX(), list_3.get(i).getPosY());
+                            if (target == 11){
+                                list_3.get(i).coords.posY += 1;
+                            }else {
+                                int attack = list_3.get(i).getAttack();
+                                list_2.get(target).setHP(list_2.get(target).HP - list_3.get(i).getAttack());
+                                System.out.println(list_3.get(i).name + " атакует " + list_2.get(target).name + " на " + attack);
+                            }
                         }
                     }
                     if (list_3.get(i).team == "team2") {
 
                         if (list_3.get(i).getClass() == Monk.class || list_3.get(i).getClass() == Wizard.class) {
-                            target = list_3.get(i).step(list_2, list_3.get(i).getPosX(), list_3.get(i).getPosY());
+                            target = list_3.get(i).step(list_2,list_3.get(i), list_3.get(i).getPosX(), list_3.get(i).getPosY());
                             int attack = list_3.get(i).getAttack();
                             list_2.get(target).setHP(list_2.get(target).HP - list_3.get(i).getAttack());
                             System.out.println(list_3.get(i).name + " лечит " + list_2.get(target).name + " на " + attack );
                         } else {
-                            target = list_3.get(i).step(list_1, list_3.get(i).getPosX(), list_3.get(i).getPosY());
-                            int attack = list_3.get(i).getAttack();
-                            list_1.get(target).setHP(list_1.get(target).HP - list_3.get(i).getAttack());
-                            System.out.println(list_3.get(i).name + " атакует " + list_1.get(target).name + " на " + attack );
+                            target = list_3.get(i).step(list_1,list_3.get(i), list_3.get(i).getPosX(), list_3.get(i).getPosY());
+                            if (target == 11) {
+                                list_3.get(i).coords.posY -= 1;
+                            }else {
+                                int attack = list_3.get(i).getAttack();
+                                list_1.get(target).setHP(list_1.get(target).HP - list_3.get(i).getAttack());
+                                System.out.println(list_3.get(i).name + " атакует " + list_1.get(target).name + " на " + attack);
+                            }
                         }
                     }
 

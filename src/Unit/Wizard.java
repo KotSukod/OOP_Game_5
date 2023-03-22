@@ -8,15 +8,14 @@ public class Wizard extends Character{
     int manaMax = 30;
     int mana = manaMax;
 
-    public Wizard(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name, int manaMax, int mana,String team)  {
-        super(name,HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
-        this.name = name;
-        this.manaMax = manaMax;
-        this.mana = mana;
-    }
+   // public Wizard(int HP, int attack, int damageMin, int damageMax, int defend, int speed, int posX, int posY, String name, int manaMax, int mana,String team)  {
+   //     super(name,HP, attack, damageMin, damageMax, defend, speed, posX, posY,team);
+   //     this.manaMax = manaMax;
+   //     this.mana = mana;
+   // }
 
     public Wizard(String name, Coor coor,String team){
-        super(name,30,17,-5,-5,12,9, coor.posX, coor.posY,team);
+        super(name,30,17,10,-5,-5,12,9, coor.posX, coor.posY,team);
         this.name = name;
         this.manaMax = manaMax;
         this.mana = mana;
@@ -30,7 +29,7 @@ public class Wizard extends Character{
     }
 
     @Override
-    public int step(ArrayList<Character> list, int a, int b){
+    public int step(ArrayList<Character> list,Character character, int a, int b){
         int target = 0;
 
         for (int i = 0; i < list.size(); i++) {
